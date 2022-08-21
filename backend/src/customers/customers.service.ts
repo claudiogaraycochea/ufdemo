@@ -16,7 +16,6 @@ export class CustomersService {
       .toPromise()
       .then(res => res.data)
       .catch(err => err)
-    // return `This action returns all customers`;
   }
 
   findOne(id: string) {
@@ -24,7 +23,6 @@ export class CustomersService {
       .toPromise()
       .then(res => res.data.filter(item=> item._id===id)[0])
       .catch(err => err)
-    // return `This action returns a #${id} customer`;
   }
 
   update(id: number, updateCustomerDto: UpdateCustomerDto) {
