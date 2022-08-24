@@ -1,0 +1,135 @@
+.side-menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  padding: 10px 20px;
+  position: fixed;
+  animation: animationLeft .2s;
+  z-index: 50;
+  border-right: 1px solid #dadada;
+}
+
+@keyframes animationLeft {
+  from {
+    transform: translateX(-200px);
+  } to {
+    transform: translateX(0);
+  }
+}
+
+.side-menu-btn {
+  position: absolute;
+}
+
+.side-menu-btn-close {
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 20px;
+  top: 20px;
+  position: absolute;
+}
+
+.side-menu-btn-open {
+  background-color: transparent;
+  border: 0px solid;
+  position: fixed;
+  left: 20px;
+  top: 14px;
+}
+
+.side-menu-btn-close:hover,
+.side-menu-btn-close:active,
+.side-menu-btn-close:focus,
+.side-menu-btn-open:hover,
+.side-menu-btn-open:active,
+.side-menu-btn-open:focus {
+  background-color: transparent;
+}
+
+.side-menu.false {
+  display: none;
+}
+
+.side-menu .btn-menu-wrapper {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.side-menu .logo-wrapper {
+  margin-top: 20px;
+  margin-bottom: 180px;
+}
+
+.side-menu .logo {
+  /*background-image: url('../../assets/img/logo.svg');*/
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left;
+  display: block;
+  width: 100%;
+  height: 38px;
+}
+
+.side-menu .menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.side-menu .menu-icon-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.side-menu a.menu-icon-link {
+  color: #303133;
+  font-size: 18px;
+  padding: 10px 20px;
+  height: 66px;
+}
+
+.side-menu a.menu-icon-link .content {
+  margin-left: 10px;
+}
+
+.side-menu a.menu-icon-link:hover {
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  border-left: 4px solid #101B29;
+}
+
+@keyframes show {
+  from {
+    transform: scale(0);
+    opacity:0;
+    z-index:-1;
+  } to {
+    transform: scale(1);
+    opacity: 1;
+    z-index:2;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+
+  .side-menu {
+    position: relative;
+    width: 70px;
+  }
+
+  .side-menu-btn-close {
+    display: none;
+  }
+
+  .side-menu {
+    animation: initial;
+  }
+}
