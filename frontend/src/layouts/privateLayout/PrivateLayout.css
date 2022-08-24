@@ -1,0 +1,11 @@
+.private-layout {
+}
+
+.private-layout .container {
+  flex: auto;
+  padding-top: 0;
+}
+
+.private-layout .content-side {
+  display: flex;
+}
