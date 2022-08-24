@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Header, Container, Section, Row, Col, H2, H4, P, ButtonIcon, Modal, TicketList, TicketRow, TicketCol, Icon} from 'uf-ui-pack';
+import { Section, Row, Col, H2, H4, P, ButtonIcon, Modal, TicketList, TicketRow, TicketCol, Icon} from 'uf-ui-pack';
+import ModalTicketMoreInfo from '../../../modals/modalTicketMoreInfo/ModalTicketMoreInfo';
 
 const HomePage = () => {
   const [componentModal, setComponentModal] = useState<any|undefined>(undefined);
@@ -83,21 +84,8 @@ const HomePage = () => {
     }
   ];
 
-  const modalTestComponent = () => {
-    return (
-      <div>
-        <Row>
-          <Col className="lineal justify-content-center">
-            Modal
-          </Col>
-        </Row>
-      </div>
-    )
-  }
-
-  function openTestModal() {
-    console.log('opeTestModal');
-    setComponentModal(modalTestComponent);
+  function openModalMoreInfo(data: any ) {
+    setComponentModal(ModalTicketMoreInfo(data));
   }
 
   function closeModal() {
@@ -109,7 +97,7 @@ const HomePage = () => {
         <Section>
           <Row>
             <Col>
-              <H2>Bienvenido de nuevo, Rodrígo.</H2>
+              <H2>Bienvenido de nuevo, Rodrígo. 👋</H2>
               <P>Estas son las personas que han comprado entrada</P>        
             </Col>
           </Row>
@@ -132,16 +120,16 @@ const HomePage = () => {
                         </div>
                       </TicketCol>
                       <TicketCol className='col-20'>
-                        <div className='text-dark'>ID</div>
+                        <div className='text-label'>ID</div>
                         <div>{item._id}</div>
                       </TicketCol>
                       <TicketCol>
                         <div className='side-side'>
                           <div className='flex'>
-                            <div className='text-dark'>Nº de ticket</div>
+                            <div className='text-label'>Nº de ticket</div>
                             <div>{item.ticket}</div>
                           </div>
-                          <div><ButtonIcon icon={<Icon.IconDots />} action={()=>openTestModal()}/></div>                        
+                          <div><ButtonIcon icon={<Icon.IconDots />} action={()=>openModalMoreInfo(item)}/></div>                        
                         </div>
                       </TicketCol>
                     </TicketRow>

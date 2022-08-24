@@ -1,0 +1,12 @@
+.row-double {
+  gap: 20px !important;
+  margin-bottom: 56px !important;
+}
+
+.row:last-child {
+  margin-bottom: 0;
+}
+
+.col {
+  border: 1px solid green;
+}
