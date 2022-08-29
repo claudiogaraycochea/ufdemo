@@ -1,1 +1,1 @@
-export const API = "http://localhost:3020";
+export const API = "http://grovefy.com:3020";
