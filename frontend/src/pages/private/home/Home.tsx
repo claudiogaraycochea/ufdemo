@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Section, Row, Col, H2, H4, P, ButtonIcon, Modal, TicketList, TicketRow, TicketCol, Icon} from 'uf-ui-pack';
 import ModalTicketMoreInfo from '../../../modals/modalTicketMoreInfo/ModalTicketMoreInfo';
+import { useSelector, useDispatch } from 'react-redux';
+import { getItems } from '../../../store/items/ItemsActions';
+import { request, ContentTypes } from '../../../lib/https';
 
 const HomePage = () => {
+  const { items } = useSelector((state: any) => state.default.items)
+  const dispatch = useDispatch();
   const [componentModal, setComponentModal] = useState<any|undefined>(undefined);
   const usersData = [
     {
@@ -84,6 +89,17 @@ const HomePage = () => {
     }
   ];
 
+  function getCustomers() {
+    
+  }
+
+  useEffect(() => {
+    if(items.length===0) {
+      getItems(dispatch);
+    }
+    console.log('>>>> items: ',items);
+  });
+
   function openModalMoreInfo(data: any ) {
     setComponentModal(ModalTicketMoreInfo(data));
   }
@@ -105,7 +121,7 @@ const HomePage = () => {
             <Col>
               <TicketList>
               {
-                usersData.map((item)=> {
+                items.map((item:any)=> {
                   return (
                     <TicketRow key={item._id}>
                       <TicketCol className='col-20'>
