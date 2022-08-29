@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { H4, Icon, Row, Col } from 'uf-ui-pack';
 import './ModalTicketMoreInfo.css'
 // important change data by TypeScript
