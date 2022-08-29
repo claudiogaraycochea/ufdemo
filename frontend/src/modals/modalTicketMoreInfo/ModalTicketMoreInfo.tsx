@@ -1,10 +1,9 @@
 import React from 'react';
 import { H4, Icon, Row, Col } from 'uf-ui-pack';
 import './ModalTicketMoreInfo.css'
-// important change data by TypeScript
+import ICustomer from '../../models/Customer';
 
-const ModalTicketMoreInfo = (data: any) => {
-
+const ModalTicketMoreInfo: React.FC<ICustomer> = (customer) => {
   return (
     <div>
       <Row>
@@ -14,8 +13,8 @@ const ModalTicketMoreInfo = (data: any) => {
               <Icon.IconTicket />
             </div>
             <div>
-              <div><H4>{data.firstName} {data.lastName}</H4></div>
-              <div>{data.present ? 'Ha entrado' : 'No ha entrado'}</div>                          
+              <div><H4>{customer.firstName} {customer.lastName}</H4></div>
+              <div>{customer.present ? 'Ha entrado' : 'No ha entrado'}</div>                          
             </div>
           </div>        
         </Col>
@@ -23,31 +22,31 @@ const ModalTicketMoreInfo = (data: any) => {
       <Row className='row-double'>
         <Col>
           <div className='text-label'>ID</div>
-          <div>{data._id}</div>
+          <div>{customer._id}</div>
         </Col>
         <Col>
           <div className='text-label'>Nº de ticket</div>
-          <div>{data.ticket}</div>
+          <div>{customer.ticket}</div>
         </Col>
       </Row>
       <Row className='row-double'>
         <Col>
           <div className='text-label'>Fecha de nacimiento</div>
-          <div>{data.birthdate}</div>
+          <div>{customer.birthdate}</div>
         </Col>
         <Col>
           <div className='text-label'>Email</div>
-          <div>{data.email}</div>
+          <div>{customer.email}</div>
         </Col>
         <Col>
           <div className='text-label'>Teléfono</div>
-          <div>{data.phone}</div>
+          <div>{customer.phone}</div>
         </Col>
       </Row>
       <Row>
         <Col>
           <div className='text-label'>Dirección</div>
-          <div>{data.address}</div>
+          <div>{customer.address}</div>
         </Col>
       </Row>
     </div>

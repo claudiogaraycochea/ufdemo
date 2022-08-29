@@ -1,10 +1,6 @@
-// import mockOffices from './../mock/offices.json';
-
-// define typescript
-
 const initialState = {
   items: [],
-  notification: Object
+  notification: {}
 };
 
 export default function items(state = initialState, action) {
@@ -14,7 +10,7 @@ export default function items(state = initialState, action) {
         ...state,
         items: action.items
       };
-    case 'GET_ITEMS':
+    case 'GET_ITEMS_ERROR':
       return {
         ...state,
         notification: action.notification

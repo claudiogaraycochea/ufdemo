@@ -1,4 +1,4 @@
-import { request, ContentTypes } from '../../lib/https';
+import { request } from '../../lib/https';
 
 const getItems = async (dispatch) => {
   const endpoint = `/customers`;
